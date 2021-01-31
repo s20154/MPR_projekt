@@ -1,5 +1,7 @@
 package pl.pjatk.gameplay.model;
 
+import net.bytebuddy.implementation.bind.annotation.Default;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,21 +12,16 @@ public class Client {
     @Id
     @GeneratedValue
     private Long id;
-    private String nickname;
-    private int health;
-    private int attack;
+    private String name;
+    private String surname;
+    private String phoneNumber;
+    private int age;
 
-    public Client(Long id, String nickname, int health, int attack) {
-        this.id = id;
-        this.nickname = nickname;
-        this.health = health;
-        this.attack = attack;
-    }
-
-    public Client(String nickname, int health, int attack) {
-        this.nickname = nickname;
-        this.health = health;
-        this.attack = attack;
+    public Client(String name, String surname, String phoneNumber, int age) {
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
     }
 
     public Client() {
@@ -38,39 +35,36 @@ public class Client {
         this.id = id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getName() {
+        return name;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getHealth() {
-        return health;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public int getAttack() {
-        return attack;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", health=" + health +
-                ", attack=" + attack +
-                '}';
+    public int getAge() {
+        return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
 
 }
