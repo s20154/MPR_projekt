@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Player {
+public class Client {
 
     @Id
     @GeneratedValue
@@ -14,20 +14,20 @@ public class Player {
     private int health;
     private int attack;
 
-    public Player(Long id, String nickname, int health, int attack) {
+    public Client(Long id, String nickname, int health, int attack) {
         this.id = id;
         this.nickname = nickname;
         this.health = health;
         this.attack = attack;
     }
 
-    public Player(String nickname, int health, int attack) {
+    public Client(String nickname, int health, int attack) {
         this.nickname = nickname;
         this.health = health;
         this.attack = attack;
     }
 
-    public Player() {
+    public Client() {
     }
 
     public Long getId() {
