@@ -57,14 +57,14 @@ public class ClientService {
         clientRepository.deleteAll();
     }
 
-    public Optional<Client> showOwnedBooks(Long id) {
-        //return bookRepository.findById();
+    public Optional<Book> showOwnedBooks(Long id) {
+        return bookRepository.findById(id);
 
-        if (id == 10L) {
-            throw new RuntimeException();
-        } else {
-            return clientRepository.findById(id);
-        }
+        //if (id == 10L) {
+        //    throw new RuntimeException();
+        //} else {
+        //    return clientRepository.findById(id);
+        //}
     }
 
 }

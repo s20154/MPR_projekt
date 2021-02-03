@@ -61,6 +61,7 @@ public class ClientController {
     @GetMapping("/{id}/ownedBooks")
     public ResponseEntity<Client> showOwnedBooks(@PathVariable Long id) {
         Optional<Client> optionalPlayer = clientService.findByID(id);
+        System.out.println(clientService.showOwnedBooks(3L));
 
         if (!optionalPlayer.isPresent()) {
             return ResponseEntity.notFound().build();
