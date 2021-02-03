@@ -16,9 +16,11 @@ public class ClientService {
     private ClientRepository clientRepository;
     private BookRepository bookRepository;
 
-    public ClientService(ClientRepository clientRepository) {
+    public ClientService(ClientRepository clientRepository, BookRepository bookRepository) {
         this.clientRepository = clientRepository;
+        this.bookRepository = bookRepository;
     }
+
 
     public List<Client> findAll() {
         return clientRepository.findAll();
