@@ -57,11 +57,13 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody Client client) {
+        // TODO number check etc
         return ResponseEntity.ok(clientService.save(client));
     }
 
     @PutMapping
     public ResponseEntity<Client> update(@RequestBody Client client) {
+        // TODO number check etc
         return ResponseEntity.ok(clientService.update(client));
     }
 

@@ -13,8 +13,8 @@ public class BookService {
 
     private BookRepository bookRepository;
 
-    public BookService(BookRepository clientRepository) {
-        this.bookRepository = clientRepository;
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     public List<Book> findAll() {
@@ -29,24 +29,24 @@ public class BookService {
         }
     }
 
-    public Book save(Book client) {
-        return bookRepository.save(client);
+    public Book save(Book book) {
+        return bookRepository.save(book);
     }
 
-    public void delete(Book client) {
-        bookRepository.delete(client);
+    public void delete(Book book) {
+        bookRepository.delete(book);
     }
 
     public void deleteById(Long id) {
         bookRepository.deleteById(id);
     }
 
-    public Book update(Book client) {
-        Optional<Book> byId = bookRepository.findById(client.getId());
+    public Book update(Book book) {
+        Optional<Book> byId = bookRepository.findById(book.getId());
         if (byId.isEmpty()) {
             throw new RuntimeException();
         } else {
-            return bookRepository.save(client);
+            return bookRepository.save(book);
         }
     }
 
