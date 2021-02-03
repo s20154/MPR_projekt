@@ -16,6 +16,7 @@ public class Client {
     private String surname;
     private String phoneNumber;
     private int age;
+    private Long ownedBook;
 
     public Client(String name, String surname, String phoneNumber, int age) {
         this.name = name;
@@ -67,4 +68,11 @@ public class Client {
         this.age = age;
     }
 
+    public Long getOwnedBook() {
+        return ownedBook;
+    }
+
+    public void setOwnedBook(Long ownedBook) {
+        this.ownedBook = ownedBook;
+    }
 }

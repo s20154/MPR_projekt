@@ -2,7 +2,9 @@ package pl.pjatk.gameplay.service;
 
 
 import org.springframework.stereotype.Service;
+import pl.pjatk.gameplay.model.Book;
 import pl.pjatk.gameplay.model.Client;
+import pl.pjatk.gameplay.repository.BookRepository;
 import pl.pjatk.gameplay.repository.ClientRepository;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.Optional;
 public class ClientService {
 
     private ClientRepository clientRepository;
+    private BookRepository bookRepository;
 
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
@@ -52,6 +55,16 @@ public class ClientService {
 
     public void deleteAll() {
         clientRepository.deleteAll();
+    }
+
+    public Optional<Client> showOwnedBooks(Long id) {
+        //return bookRepository.findById();
+
+        if (id == 10L) {
+            throw new RuntimeException();
+        } else {
+            return clientRepository.findById(id);
+        }
     }
 
 }
