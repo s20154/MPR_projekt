@@ -5,6 +5,8 @@ import net.bytebuddy.implementation.bind.annotation.Default;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class Client {
@@ -17,6 +19,7 @@ public class Client {
     private String phoneNumber;
     private int age;
     private Long ownedBook;
+    private LocalDateTime borrowDate;
 
     public Client(String name, String surname, String phoneNumber, int age) {
         this.name = name;
@@ -74,5 +77,13 @@ public class Client {
 
     public void setOwnedBook(Long ownedBook) {
         this.ownedBook = ownedBook;
+    }
+
+    public LocalDateTime getBorrowDate() {
+        return borrowDate;
+    }
+
+    public void setBorrowDate(LocalDateTime borrowDate) {
+        this.borrowDate = borrowDate;
     }
 }

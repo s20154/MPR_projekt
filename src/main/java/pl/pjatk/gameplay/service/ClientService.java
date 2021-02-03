@@ -7,6 +7,7 @@ import pl.pjatk.gameplay.model.Client;
 import pl.pjatk.gameplay.repository.BookRepository;
 import pl.pjatk.gameplay.repository.ClientRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,14 +60,9 @@ public class ClientService {
         clientRepository.deleteAll();
     }
 
-    public Optional<Book> showOwnedBooks(Long id) {
+    public Optional<Book> showOwnedBook(Long id) {
         return bookRepository.findById(id);
-
-        //if (id == 10L) {
-        //    throw new RuntimeException();
-        //} else {
-        //    return clientRepository.findById(id);
-        //}
     }
+
 
 }
