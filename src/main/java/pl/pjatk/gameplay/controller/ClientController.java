@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/client")
@@ -57,13 +58,18 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<Client> save(@RequestBody Client client) {
-        // TODO number check etc
+        if (client.isEmpty() == true){
+            return ResponseEntity.badRequest().build();
+        }
+        if (client.isNumberLegit() == false){
+            return ResponseEntity.badRequest().build();
+        }
+
         return ResponseEntity.ok(clientService.save(client));
     }
 
     @PutMapping
     public ResponseEntity<Client> update(@RequestBody Client client) {
-        // TODO number check etc
         return ResponseEntity.ok(clientService.update(client));
     }
 
