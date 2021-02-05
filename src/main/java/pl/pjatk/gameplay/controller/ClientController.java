@@ -43,11 +43,11 @@ public class ClientController {
     public ResponseEntity<Client> findById(@PathVariable Long id) {
         Optional<Client> optionalPlayer = clientService.findByID(id);
 
-        if (optionalPlayer.isPresent()) {
-            return ResponseEntity.ok(optionalPlayer.get());
-        } else {
+        if (!optionalPlayer.isPresent()) {
             return ResponseEntity.notFound().build();
         }
+
+        return ResponseEntity.ok(optionalPlayer.get());
     }
 
     @DeleteMapping("/{id}")
@@ -70,6 +70,13 @@ public class ClientController {
 
     @PutMapping
     public ResponseEntity<Client> update(@RequestBody Client client) {
+        if (client.isEmpty() == true){
+            return ResponseEntity.badRequest().build();
+        }
+        if (client.isNumberLegit() == false){
+            return ResponseEntity.badRequest().build();
+        }
+
         return ResponseEntity.ok(clientService.update(client));
     }
 

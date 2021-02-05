@@ -77,6 +77,7 @@ public class BookController {
         if (optionalClient.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
+        // Does he have that book
 
         return ResponseEntity.ok(optionalClient.get().getBorrowDate().plusWeeks(2).isAfter(LocalDateTime.now()));
     }
